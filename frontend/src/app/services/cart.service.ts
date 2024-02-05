@@ -43,6 +43,7 @@ export class CartService {
 
   clearCart() {
     this.cart = new Cart();
+    this.setCartToLocalStorage();
   }
 
   getCartObservable(): Observable<Cart> {
