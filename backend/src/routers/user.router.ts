@@ -1,4 +1,4 @@
-import { Router } from "express"; 
+import express, { Router } from "express"; 
 import jwt from 'jsonwebtoken';
 import { sample_foods, sample_users } from "../data";
 import asyncHandler from 'express-async-handler';
@@ -6,10 +6,10 @@ import { User, UserModel } from "../models/user.model";
 import { HTTP_BAD_REQUEST } from "../constants/http_status";
 import bcrypt from 'bcryptjs';
 
-const router = Router();
+const router = express.Router();
 
 router.get("/seed", asyncHandler(
-  async (req, res) => {
+  async (req: express.Request, res: express.Response) => {
     const usersCount = await UserModel.countDocuments();
     if (usersCount>0) {
       res.send("Seed is already done");
@@ -22,7 +22,7 @@ router.get("/seed", asyncHandler(
 ));
 
 router.post('/login', asyncHandler(
-  async (req, res) => {
+  async (req: express.Request, res: express.Response) => {
     const {email, password} = req.body;
     const user = await UserModel.findOne({ email, password })
       
@@ -35,7 +35,7 @@ router.post('/login', asyncHandler(
 ));
 
 router.post('/register', asyncHandler(
-  async (req, res) => {
+  async (req: express.Request, res: express.Response) => {
     const {name, email, password, address} = req.body;
     const user = await UserModel.findOne({email});
 

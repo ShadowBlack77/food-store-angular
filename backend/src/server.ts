@@ -24,5 +24,5 @@ app.use('/api/users', userRouter);
 
 const port = 5000;
 app.listen(port, () => {
-  console.log(`Website served on http://localhost:${port}`);
+  console.log(`Website served on ${port}`);
 });
