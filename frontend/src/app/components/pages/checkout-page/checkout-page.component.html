@@ -10,17 +10,10 @@
       <text-input [control]="fc.address" label="Address" />
     </form>
     <order-items-list [order]="order" />
-  </div>
-  <div class="map">
-    <app-title 
-      title="Choose Your Address On Map"
-      fontSize="1.6em"
-    />
-
     <div class="button-container">
       <button (click)="createOrder()">
         Go To payment
       </button>
-    </div>
+  </div>
   </div>
 </div>
