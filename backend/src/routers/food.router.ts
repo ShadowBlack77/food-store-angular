@@ -20,7 +20,7 @@ router.get("/seed", asyncHandler(
 
 router.get("/", asyncHandler(
   async (req: express.Request, res: express.Response) => {
-    const foods = await FoodModel.find();
+    const foods = await FoodModel.find().maxTimeMS(40000);
     res.send(foods);
   }
 ));
