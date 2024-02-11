@@ -1,1 +1,26 @@
-<p>checkout-page works!</p>
+<div class="container">
+  <div class="content">
+    <app-title
+      title="Order Form"
+      fontSize="1.6em"
+    />
+
+    <form [formGroup]="checkoutForm">
+      <text-input [control]="fc.name" label="Name" />
+      <text-input [control]="fc.address" label="Address" />
+    </form>
+    <order-items-list [order]="order" />
+  </div>
+  <div class="map">
+    <app-title 
+      title="Choose Your Address On Map"
+      fontSize="1.6em"
+    />
+
+    <div class="button-container">
+      <button (click)="createOrder()">
+        Go To payment
+      </button>
+    </div>
+  </div>
+</div>

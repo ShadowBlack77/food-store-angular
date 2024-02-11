@@ -24,9 +24,27 @@ export class CheckoutPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.userService.currentUser);
+    
     let { name, address } = this.userService.currentUser;
     this.checkoutForm = this.formBuilder.group({
-      name: [name, [Validators.required]]
-    })
+      name: [name, [Validators.required]],
+      address: [address, [Validators.required]]
+    });
+  }
+
+  get fc() {
+    return this.checkoutForm.controls;
+  }
+
+  createOrder() {
+    if (this.checkoutForm.invalid) {
+      return;
+    }
+
+    this.order.name = this.fc.name.value;
+    this.order.address = this.fc.address.value;
+
+    console.log(this.order);
   }
 }

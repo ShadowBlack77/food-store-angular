@@ -18,7 +18,7 @@ export class HeaderComponent {
     })
 
     userService.userObservable.subscribe((newUser) => {
-      this.user = newUser;
+      this.user = newUser;      
     })
   }
 
@@ -27,6 +27,6 @@ export class HeaderComponent {
   }
 
   get isAuth() {
-    return this.user.token;
+    return this.user.email;
   }
 }

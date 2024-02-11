@@ -25,7 +25,7 @@ router.post('/login', asyncHandler(
   async (req, res) => {
     const {email, password} = req.body;
     const user = await UserModel.findOne({ email, password })
-  
+      
     if (user) {
       res.send(generateTokenResponse(user));
     } else {
@@ -66,8 +66,8 @@ const generateTokenResponse = (user: any) => {
   },"SomeRandomTest", {
     expiresIn: "30d"
   });
-
-  user.token = token;
+  
+  user.token = token;  
   return user;
 };
 
